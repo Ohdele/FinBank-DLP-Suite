@@ -10,3 +10,9 @@
 - Local files containing sample PII and financial data
 - Web application logs with sensitive fields
 - Database dumps with test customer records
+
+## DLP Policies
+- Detect PII (names, SSNs, emails)
+- Detect credit card numbers and financial records
+- Monitor confidential file transfers (cloud and local)
+- Enforce encryption for sensitive data in transit
