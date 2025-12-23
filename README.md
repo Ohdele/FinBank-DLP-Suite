@@ -20,3 +20,12 @@
 ## Test Data
 - ~/dlp_test_data/pii_sample.txt — sample PII
 - ~/dlp_test_data/financial_sample.txt — sample financial data
+
+
+## Detection Simulation
+
+Simulated sensitive data files created in `~/dlp_test_data`:
+- `pii_sample.txt` contains PII (e.g., SSN, names, emails)
+- `financial_sample.txt` contains financial records (e.g., account numbers, balances)
+
+Detection performed with `grep -R -n -E "([0-9]{3}-[0-9]{2}-[0-9]{4}|Account:)" ~/dlp_test_data` to simulate DLP monitoring and alerts. Outputs recorded in `proof_log_dlp.txt`.
