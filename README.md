@@ -16,3 +16,7 @@
 - Detect credit card numbers and financial records
 - Monitor confidential file transfers (cloud and local)
 - Enforce encryption for sensitive data in transit
+
+## Test Data
+- ~/dlp_test_data/pii_sample.txt — sample PII
+- ~/dlp_test_data/financial_sample.txt — sample financial data
