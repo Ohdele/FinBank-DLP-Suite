@@ -1,24 +1,18 @@
-[18:31:33] dele@kali:~/FinBank-DLP-Suite$ git branch -m main
-[main (root-commit) 6694088] Initialize FinBank DLP Suite lab
- create mode 100644 README.md
- create mode 100644 proof_log_dlp.txt
+Script started on 2025-12-24 05:37:07+01:00 [COMMAND="cp ~/dlp_test_data/pii_sample.txt ~/exfil_sim/" TERM="xterm-256color"]
+Script done on 2025-12-24 05:37:07+01:00 [COMMAND_EXIT_CODE="0"]
 
-[18:33:48] dele@kali:~/FinBank-DLP-Suite$ nano README.md
-[main f46327e] Add lab scope to README
- 1 file changed, 6 insertions(+)
+Script started on 2025-12-24 05:50:20+01:00 [COMMAND="openssl s_client -connect localhost:443 -tls1_2" TERM="xterm-256color"]
+406765BEE67F0000:error:8000006F:system library:BIO_connect:Connection refused
+connect:errno=111
+Script done on 2025-12-24 05:50:20+01:00 [COMMAND_EXIT_CODE="1"]
 
-[18:42:13] dele@kali:~/FinBank-DLP-Suite$ git add README.md && git commit -m "Add simulated data sources section"
-[main 80a56e3] Add simulated data sources section
- 1 file changed, 5 insertions(+)
+Script started on 2025-12-24 16:47:08+01:00 [TERM="xterm-256color"]
+[16:47:08] dele@kali:~/FinBank-DLP-Suite$ openssl s_client -connect localhost:443 -tls1_2
+CONNECTED
+Verification error: self-signed certificate
+SSL handshake completed with TLSv1.2, Cipher: ECDHE-RSA-AES256-GCM-SHA384
+Script done
 
-[18:42:28] dele@kali:~/FinBank-DLP-Suite$ git add README.md && git commit -m "Add DLP policies section"
-[main 4a24393] Add DLP policies section
- 1 file changed, 6 insertions(+)
-
-[18:44:13] dele@kali:~/FinBank-DLP-Suite$ mkdir ~/dlp_test_data
-echo "John Doe, 123-45-6789, johndoe@example.com" > ~/dlp_test_data/pii_sample.txt
-echo "Account: 987654321, Balance: $10,000" > ~/dlp_test_data/financial_sample.txt
-
-[18:46:47] dele@kali:~/FinBank-DLP-Suite$ grep -R -n -E "([0-9]{3}-[0-9]{2}-[0-9]{4}|Account:)" ~/dlp_test_data | tee -a proof_log_dlp.txt
-/home/dele/dlp_test_data/pii_sample.txt:1:John Doe, 123-45-6789, johndoe@example.com
-/home/dele/dlp_test_data/financial_sample.txt:1:Account: 987654321, Balance: 0,000
+Script started on 2025-12-24 16:48:59+01:00 [COMMAND="openssl s_server -cert ~/tls_test/cert.pem -key ~/tls_test/key.pem -accept 443"]
+ACCEPT
+Script done
