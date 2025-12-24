@@ -23,9 +23,36 @@
 
 
 ## Detection Simulation
+Simulated sensitive data files were created in ~/dlp_test_data.
 
-Simulated sensitive data files created in `~/dlp_test_data`:
-- `pii_sample.txt` contains PII (e.g., SSN, names, emails)
-- `financial_sample.txt` contains financial records (e.g., account numbers, balances)
+Detection was performed using:
+grep -R -n -E "([0-9]{3}-[0-9]{2}-[0-9]{4}|Account:)" ~/dlp_test_data
 
-Detection performed with `grep -R -n -E "([0-9]{3}-[0-9]{2}-[0-9]{4}|Account:)" ~/dlp_test_data` to simulate DLP monitoring and alerts. Outputs recorded in `proof_log_dlp.txt`.
+This simulates DLP pattern matching and alert generation.
+All detection output is captured in proof_log_dlp.txt.
+
+## Incident Response Simulation
+A simulated data exfiltration attempt was executed by copying a detected PII file from the monitored directory to a mock exfiltration path.
+
+Action:
+- Source: ~/dlp_test_data/pii_sample.txt
+- Destination: ~/exfil_sim/
+
+This represents an unauthorized data movement event that a DLP solution would flag as a policy violation.
+
+Evidence:
+- Command execution, timestamps, and file movement are logged in proof_log_dlp.txt.
+
+
+## Encryption Verification
+
+A TLS encryption test was performed on a local simulated service to verify secure data transmission.
+
+Action:
+- TLS server started using a self-signed certificate at ~/tls_test/cert.pem and key at ~/tls_test/key.pem
+- Client connection tested using: openssl s_client -connect localhost:443 -tls1_2
+
+Outcome:
+- TLS handshake completed successfully with protocol TLSv1.2 and cipher ECDHE-RSA-AES256-GCM-SHA384
+- Self-signed certificate verified, connection secure
+- All commands and outputs captured in proof_log_dlp.txt
