@@ -56,3 +56,9 @@ Outcome:
 - TLS handshake completed successfully with protocol TLSv1.2 and cipher ECDHE-RSA-AES256-GCM-SHA384
 - Self-signed certificate verified, connection secure
 - All commands and outputs captured in proof_log_dlp.txt
+
+
+## Metrics Reporting
+Detections count simulated PII and financial files flagged
+Incidents count one exfiltration attempt logged
+Encryption checks TLS handshake verified successfully
